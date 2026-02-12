@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>彌勒投廣 - 專業灰產全球代投服務</title>
+  <meta name="description" content="彌勒專業灰產代投｜各式灰產全球代投真實數據回報，讓每分廣告預算都看得見成效。" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts: Fredoka, Varela Round, Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Varela+Round&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Kuse SDK -->
+  <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+
+  <style>
+    :root {
+      --pink-1: #f8b4d9;
+      --pink-2: #e879b9;
+      --pink-3: #d946a6;
+    }
+
+    html {
+      scroll-behavior: smooth; /* 平滑滾動 */
+    }
+
+    /* 字體優先級：可愛圓潤白字體 + 粗體陰影 */
+    .cute-font {
+      font-family: "Fredoka", "Varela Round", "Noto Sans TC", system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    }
+
+    .text-shadow-white {
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.25), 0 2px 10px rgba(255, 255, 255, 0.15);
+    }
+
+    .text-shadow-soft {
+      text-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+
+    /* 淡入動畫 (fade-in) */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 脈衝動畫 (pulse) for floating button */
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.65), 0 10px 24px rgba(217,70,166,0.45); transform: scale(1); }
+      50% { box-shadow: 0 0 0 16px rgba(255,255,255,0), 0 14px 30px rgba(217,70,166,0.6); transform: scale(1.06); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0), 0 10px 24px rgba(217,70,166,0.45); transform: scale(1); }
+    }
+    .pulse {
+      animation: pulseGlow 2.2s ease-in-out infinite;
+    }
+
+    /* 甜美粉色漸變背景 */
+    .sweet-gradient {
+      background: linear-gradient(135deg, var(--pink-1), var(--pink-2) 50%, var(--pink-3));
+    }
+
+    /* Hero 視差滾動: 以背景圖呈現 */
+    .hero-parallax {
+      background-image: url('https://api.kuse.ai/api/folder/v1/file/4b6fce9396092d49e31723817baf888c63e8845230a4589f135e38aad2918e8e_1662260.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed; /* 視差效果 */
+      background-position: center top; /* 頂部完整顯示，避免裁切人物與光圈 */
+    }
+
+    /* 卡片柔和玻璃擬態 */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+    }
+
+    /* 主要白字樣式加粗陰影 */
+    .primary-white {
+      color: #fff;
+      font-weight: 800;
+      text-shadow: 0 4px 14px rgba(0,0,0,0.35);
+      letter-spacing: 0.02em;
+    }
+
+    /* 圖片自適應 + 圓角 + 微陰影 */
+    .img-card {
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+    }
+
+    /* Sticky navbar shadow */
+    .sticky-shadow {
+      box-shadow: 0 10px 24px rgba(217, 70, 166, 0.25);
+    }
+
+    /* CTA button styling */
+    .cta-btn {
+      background: linear-gradient(135deg, #fff, #ffe6f3);
+      color: #d946a6;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      box-shadow: 0 10px 22px rgba(217, 70, 166, 0.45);
+      transition: transform 200ms ease, box-shadow 200ms ease, opacity 200ms ease;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 14px 28px rgba(217, 70, 166, 0.6);
+    }
+
+    /* Tag pill style */
+    .tag-pill {
+      background: rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 8px 14px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    /* Section container max width */
+    .container {
+      max-width: 1200px;
+    }
+
+    /* Responsive image grid tweaks */
+    .grid-auto {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    /* Kuse branding pill */
+    .kuse-pill {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 999px;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+    }
+
+    /* Safe area padding on mobile for floating elements */
+    .safe-bottom {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  </style>
+</head>
+
+<body class="cute-font sweet-gradient min-h-screen selection:bg-pink-300 selection:text-pink-900">
+
+  <!-- Sticky Navbar -->
+  <header class="sticky top-0 z-50 bg-gradient-to-b from-pink-600/60 to-pink-500/40 backdrop-blur-md sticky-shadow">
+    <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+      <a href="#home" class="text-white font-black tracking-wide text-shadow-soft text-xl sm:text-2xl">彌勒專業灰產代投</a>
+      <a href="#contact" class="cta-btn rounded-full px-4 sm:px-6 py-2 sm:py-2.5 flex items-center gap-2">
+        <span class="text-lg">✈️</span>
+        <span class="text-sm sm:text-base">立即聯繫</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-parallax relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-pink-700/25 to-pink-900/40"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-28 relative">
+      <div class="max-w-3xl fade-in mx-auto text-center">
+        <h1 class="primary-white cute-font text-shadow-soft text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6">
+          彌勒專業灰產代投
+        </h1>
+        <p class="text-white text-shadow-white font-bold text-lg sm:text-xl lg:text-2xl mb-8">
+          各式灰產全球代投真實數據回報，讓每分廣告預算都看得見成效
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8">
+          <span class="tag-pill">博弈</span>
+          <span class="tag-pill">小額</span>
+          <span class="tag-pill">代收付</span>
+          <span class="tag-pill">招聘</span>
+          <span class="tag-pill">代工</span>
+          <span class="tag-pill">囤粉</span>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 sm:p-6 text-white font-extrabold text-shadow-soft inline-flex items-center justify-center mx-auto">
+          <span class="text-2xl sm:text-3xl">💯</span>
+          <span class="ml-3 text-lg sm:text-xl">各式灰產投放經驗豐富，根據客戶及主題性質，量身打造投放方式</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 投放數據與入角回報區塊 -->
+  <section id="metrics" class="relative">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+      <div class="fade-in mb-10 sm:mb-12 text-center">
+        <h2 class="text-white font-black text-shadow-soft text-3xl sm:text-4xl mb-3">投放數據與入角回報</h2>
+        <p class="text-white/90 font-bold">真實投放表單與入角回報截圖，透明呈現成效</p>
+      </div>
+
+      <!-- 表單投放數據 -->
+      <div class="fade-in glass-card rounded-3xl p-6 sm:p-8 mb-10">
+        <h3 class="text-white font-extrabold text-shadow-soft text-2xl sm:text-3xl mb-6">表單投放數據</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <img class="w-full h-auto img-card" alt="表單投放數據圖1" src="https://api.kuse.ai/api/folder/v1/file/dac71f638a1648477a4aa8769cf879db40103f61d9b8785e672aa055abbaa02e_1662202.jpg">
+          <img class="w-full h-auto img-card" alt="表單投放數據圖2" src="https://api.kuse.ai/api/folder/v1/file/8c9cbfce9c9fc6433d703503a97d30a497a0e8e56c5004ae5faa2bd562dbd01d_1662203.jpg">
+        </div>
+      </div>
+
+      <!-- 客戶入角回報 -->
+      <div class="fade-in glass-card rounded-3xl p-6 sm:p-8 mb-10">
+        <h3 class="text-white font-extrabold text-shadow-soft text-2xl sm:text-3xl mb-6">客戶入角回報</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <img class="w-full h-auto img-card" alt="客戶入角回報圖1" src="https://api.kuse.ai/api/folder/v1/file/894df864b638c912e91f47679db049e68dad9fd1bd42f8611d6ac5a33ce9d1fa_1662216.jpg">
+          <img class="w-full h-auto img-card" alt="客戶入角回報圖2" src="https://api.kuse.ai/api/folder/v1/file/91ac4caac40ffce41afe66289061d9c0c8c4c3395bce4c5843c14f8840e7abec_1662217.jpg">
+        </div>
+      </div>
+
+      <!-- 三排成效標語 -->
+      <div class="fade-in grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+        <div class="glass-card rounded-2xl p-6">
+          <p class="text-white font-extrabold text-xl flex items-start gap-3">
+            <span class="text-2xl">💰</span>
+            <span>專業技術網站直入，成效超高佳評如潮</span>
+          </p>
+        </div>
+        <div class="glass-card rounded-2xl p-6">
+          <p class="text-white font-extrabold text-xl flex items-start gap-3">
+            <span class="text-2xl">🎯</span>
+            <span>根據客戶性質給予不同主題建議及素材更換</span>
+          </p>
+        </div>
+        <div class="glass-card rounded-2xl p-6">
+          <p class="text-white font-extrabold text-xl flex items-start gap-3">
+            <span class="text-2xl">🚀</span>
+            <span>各主題均附專屬網站，入角不重複質量超高</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- 統計數據 -->
+      <div class="fade-in grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="glass-card rounded-2xl p-6 text-center">
+          <p class="text-white/90 font-bold mb-1">招聘入角單日突破</p>
+          <p class="text-white font-black text-4xl">100+</p>
+        </div>
+        <div class="glass-card rounded-2xl p-6 text-center">
+          <p class="text-white/90 font-bold mb-1">部分主題入角平均成本</p>
+          <p class="text-white font-black text-4xl">1.3U</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 優勢區塊 -->
+  <section id="advantages" class="relative">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
+      <div class="fade-in text-center mb-10 sm:mb-12">
+        <h2 class="text-white font-black text-shadow-soft text-3xl sm:text-4xl">最懂你、最貼心的廣告商</h2>
+        <p class="text-white/90 font-bold mt-3">以數據為本，結合創意與暖心服務，持續優化投放表現</p>
+      </div>
+
+      <div class="fade-in grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="glass-card rounded-2xl p-6 flex flex-col">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-2xl">❤️</span>
+            <h3 class="text-white font-extrabold text-xl">創意投放</h3>
+          </div>
+          <p class="text-white/90 font-bold">結合多元素材型態與渠道策略，提升曝光與轉化。</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 flex flex-col">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-2xl">❤️</span>
+            <h3 class="text-white font-extrabold text-xl">主題輪替</h3>
+          </div>
+          <p class="text-white/90 font-bold">依投放表現滾動調整主題，確保素材新鮮與受眾貼合。</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 flex flex-col">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-2xl">❤️</span>
+            <h3 class="text-white font-extrabold text-xl">數據優化</h3>
+          </div>
+          <p class="text-white/90 font-bold">以真實數據回饋為導向，持續迭代投放策略與頁面。</p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 flex flex-col">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-2xl">❤️</span>
+            <h3 class="text-white font-extrabold text-xl">暖心服務</h3>
+          </div>
+          <p class="text-white/90 font-bold">專屬客服與方案建議，提供貼心且即時的支援。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA 區塊 -->
+  <section id="contact" class="relative">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20 text-center">
+      <div class="fade-in">
+        <h2 class="text-white font-black text-shadow-soft text-3xl sm:text-4xl mb-4">越灰我們越會投</h2>
+        <p class="text-white/90 font-bold text-lg sm:text-xl mb-8">點擊下方飛機圖示✈️立即加入了解更多✨</p>
+        <a href="#contact" class="cta-btn rounded-full inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 text-lg">
+          <span class="text-2xl">✈️</span>
+          <span>立即聯繫我們</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative border-t border-white/20 safe-bottom">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 flex items-center justify-center">
+      <p class="text-white/90 font-bold">© 2024 彌勒專業灰產代投</p>
+    </div>
+  </footer>
+
+  <!-- 右下角浮動按鈕 (✈️ emoji, 脈衝動畫) -->
+  <a href="#contact" aria-label="立即聯繫"
+     class="fixed right-4 bottom-20 sm:bottom-24 z-50 pulse">
+    <div class="cta-btn rounded-full w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center">
+      <span class="text-2xl sm:text-3xl">✈️</span>
+    </div>
+  </a>
+
+  <!-- 左下角 Kuse branding -->
+  <div class="fixed left-4 bottom-4 z-40 kuse-pill px-3 py-2 flex items-center gap-2">
+    <span class="text-white/95 text-sm">made with</span>
+    <a href="https://kuse.ai" target="_blank" rel="noopener" class="inline-flex items-center" aria-label="Kuse.ai">
+      <svg width="72" height="20" viewBox="0 0 256 71" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M36.3 0c19.9 0 36 16.1 36 36s-16.1 36-36 36S.3 55.9.3 36 16.4 0 36.3 0z" fill="#fff" opacity=".22"/>
+        <path d="M59.4 20.7c-1.2-1.3-3.3-1.4-4.6-.3L41 31.3l-8.8-9.4c-1.3-1.4-3.6-1.4-5 .1s-1.4 3.6.1 5l11.2 12c1.3 1.4 3.5 1.5 4.9.2l14.9-12.7c1.5-1.2 1.6-3.5.1-4.8z" fill="#fff"/>
+        <text x="80" y="48" fill="#ffffff" font-family="Fredoka, Varela Round, Noto Sans TC, sans-serif" font-size="28" font-weight="700">Kuse</text>
+      </svg>
+    </a>
+  </div>
+
+  <!-- 進場動畫觸發、可選視差補強 -->
+  <script>
+    // 進場淡入動畫：IntersectionObserver
+    (function() {
+      const els = document.querySelectorAll('.fade-in');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
+    })();
+
+    // Hero 背景視差補強（針對部分不支援 background-attachment: fixed 的裝置）
+    (function() {
+      const hero = document.querySelector('.hero-parallax');
+      if (!hero) return;
+      let ticking = false;
+      const basePosY = 0; // center top 基準
+      const onScroll = () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrolled = window.scrollY || document.documentElement.scrollTop;
+            const offset = Math.max(0, scrolled * 0.2); // 輕微視差
+            hero.style.backgroundPosition = `center calc(top + ${basePosY + offset}px)`;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
+</body>
+</html>
