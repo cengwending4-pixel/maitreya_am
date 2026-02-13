@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Varela+Round&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-  <!-- Kuse SDK -->
+  <!-- Kuse SDK（可留可刪，不影響顯示） -->
   <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
 
   <style>
@@ -25,7 +25,7 @@
     }
 
     html {
-      scroll-behavior: smooth; /* 平滑滾動 */
+      scroll-behavior: smooth;
     }
 
     /* 字體優先級：可愛圓潤白字體 + 粗體陰影 */
@@ -41,15 +41,11 @@
       text-shadow: 0 6px 16px rgba(0,0,0,0.25);
     }
 
-    /* 淡入動畫 (fade-in) */
+    /* 淡入動畫：先全部顯示，不依賴 JS */
     .fade-in {
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 700ms ease, transform 700ms ease;
-    }
-    .fade-in.show {
       opacity: 1;
       transform: translateY(0);
+      transition: opacity 700ms ease, transform 700ms ease;
     }
 
     /* 脈衝動畫 (pulse) for floating button */
@@ -72,8 +68,8 @@
       background-image: url('https://api.kuse.ai/api/folder/v1/file/4b6fce9396092d49e31723817baf888c63e8845230a4589f135e38aad2918e8e_1662260.jpg');
       background-size: cover;
       background-repeat: no-repeat;
-      background-attachment: fixed; /* 視差效果 */
-      background-position: center top; /* 頂部完整顯示，避免裁切人物與光圈 */
+      background-attachment: fixed;
+      background-position: center top;
     }
 
     /* 佛像疊加背景（透明度低） */
@@ -82,10 +78,10 @@
       inset: 0;
       background-image: url('https://raw.githubusercontent.com/cengwending4-pixel/maitreya_am/main/photo_2026-02-02_02-53-56.jpg');
       background-repeat: no-repeat;
-      background-size: cover;          /* 充滿寬度，上下可裁切 */
-      background-position: center top; /* 人物和光圈完整進入，裁掉下面金銀財寶 */
-      opacity: 0.28;                   /* 透明度，可自行調整 0.2～0.4 */
-      pointer-events: none;            /* 不影響滑鼠操作 */
+      background-size: cover;
+      background-position: center top;
+      opacity: 0.28;        /* 想更明顯就調高，例如 0.35 */
+      pointer-events: none;
     }
 
     /* 卡片柔和玻璃擬態 */
@@ -351,7 +347,13 @@
   <!-- 右下角浮動按鈕 (✈️ emoji, 脈衝動畫) -->
   <a href="#contact" aria-label="立即聯繫"
      class="fixed right-4 bottom-20 sm:bottom-24 z-50 pulse">
-    <div class="
+    <div class="cta-btn rounded-full w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center">
+      <span class="text-2xl sm:text-3xl">✈️</span>
+    </div>
+  </a>
+
+  <!-- 左下角 Kuse branding -->
+  <div class="
 
 
 
