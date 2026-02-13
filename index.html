@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>彌勒投廣 - 專業灰產全球代投服務</title>
     <meta name="description" content="彌勒專業灰產代投｜各式灰產全球代投真實數據回報，讓每分廣告預算都看得見成效。">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Varela+Round&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -155,6 +155,130 @@
             width: auto;
             fill: currentColor;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .hero-parallax {
+                background-attachment: scroll;
+                min-height: 100vh;
+                padding-top: 80px;
+            }
+
+            h1[style*="font-size: 50px"] {
+                font-size: 36px !important;
+            }
+
+            .text-2xl {
+                font-size: 1.25rem;
+                line-height: 1.75rem;
+            }
+
+            .text-4xl {
+                font-size: 1.875rem;
+                line-height: 2.25rem;
+            }
+
+            .text-5xl {
+                font-size: 2.25rem;
+                line-height: 2.5rem;
+            }
+
+            .text-xl {
+                font-size: 1.125rem;
+                line-height: 1.75rem;
+            }
+
+            .tag-pill {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+
+            .cta-btn {
+                min-height: 44px;
+                font-size: 0.875rem;
+            }
+
+            .py-20 {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+
+            .px-6 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .mb-12 {
+                margin-bottom: 2rem;
+            }
+
+            .mb-16 {
+                margin-bottom: 2.5rem;
+            }
+
+            .gap-8 {
+                gap: 1.5rem;
+            }
+
+            .glass-card {
+                padding: 1.5rem;
+            }
+
+            .fixed.bottom-8.right-8 {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .fixed.bottom-8.left-8 {
+                bottom: 1rem;
+                left: 1rem;
+            }
+
+            .kuse-pill {
+                font-size: 11px;
+                padding: 8px 14px;
+            }
+
+            nav .px-6 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            nav .py-4 {
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+
+            nav .text-xl {
+                font-size: 1.125rem;
+            }
+
+            nav .cta-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            .grid.md\:grid-cols-2 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+
+            .grid.lg\:grid-cols-4 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+
+            @media (min-width: 640px) {
+                .grid.lg\:grid-cols-4 {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+            }
+        }
+
+        @media (max-width: 640px) {
+            .cta-btn.pulse {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body class="cute-font">
@@ -260,7 +384,7 @@
                 🚀 準備開始了嗎？
             </h2>
             <p class="text-xl text-white mb-10 text-shadow-white">
-                立即聯繫我們，開啟您的專業代投之旅
+                立即聯繫我們,開啟您的專業代投之旅
             </p>
             <button class="cta-btn px-10 py-4 rounded-full text-xl">
                 TG立即諮詢 ✈️
@@ -291,10 +415,4 @@
     <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
 </body>
 </html>
-
-
-
-
-
-
 
