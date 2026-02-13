@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>彌勒投廣 - 專業灰產全球代投服務</title>
     <meta name="description" content="彌勒專業灰產代投｜各式灰產全球代投真實數據回報，讓每分廣告預算都看得見成效。">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Varela+Round&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -39,18 +37,9 @@
         }
 
         @keyframes pulseGlow {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255,255,255,0.65), 0 10px 24px rgba(217,70,166,0.45);
-                transform: scale(1);
-            }
-            50% {
-                box-shadow: 0 0 0 16px rgba(255,255,255,0), 0 14px 30px rgba(217,70,166,0.6);
-                transform: scale(1.06);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(255,255,255,0), 0 10px 24px rgba(217,70,166,0.45);
-                transform: scale(1);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.65), 0 10px 24px rgba(217,70,166,0.45); transform: scale(1); }
+            50% { box-shadow: 0 0 0 16px rgba(255,255,255,0), 0 14px 30px rgba(217,70,166,0.6); transform: scale(1.06); }
+            100% { box-shadow: 0 0 0 0 rgba(255,255,255,0), 0 10px 24px rgba(217,70,166,0.45); transform: scale(1); }
         }
 
         .pulse {
@@ -169,63 +158,140 @@
     </style>
 </head>
 <body class="cute-font">
-    <!-- Sticky Navbar -->
     <nav class="fixed top-0 left-0 right-0 z-50 sweet-gradient sticky-shadow">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <span class="text-white text-xl sm:text-2xl font-bold text-shadow-white">彌勒專業灰產投廣</span>
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="text-white text-xl font-bold text-shadow-white">
+                彌勒專業灰產投廣
             </div>
-            <a href="#contact" class="cta-btn px-6 py-3 rounded-full text-base sm:text-lg">TG立即諮詢✈️</a>
+            <button class="cta-btn px-6 py-3 rounded-full text-base">
+                TG立即諮詢 ✈️
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero-parallax relative min-h-screen flex items-center justify-center pt-20">
         <div class="hero-buddha-overlay"></div>
-        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto fade-in">
-            <h1 class="primary-white text-5xl sm:text-6xl lg:text-7xl mb-6">
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <h1 class="primary-white mb-6 fade-in" style="font-size: 50px;">
                 彌勒專業灰產代投
             </h1>
-            <p class="text-white text-xl sm:text-2xl lg:text-3xl mb-8 text-shadow-soft font-medium">
+            <p class="text-white text-2xl font-semibold mb-12 text-shadow-soft fade-in">
                 各式灰產全球代投真實數據回報<br>讓每分廣告預算都看得見成效
             </p>
-            <div class="flex flex-wrap justify-center gap-3 mb-12">
+            
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-4 fade-in">
                 <span class="tag-pill">博弈</span>
                 <span class="tag-pill">小額</span>
                 <span class="tag-pill">代收付</span>
-                <span class="tag-pill">招聘</span>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-12 fade-in">
                 <span class="tag-pill">代工</span>
+                <span class="tag-pill">招聘</span>
                 <span class="tag-pill">囤粉</span>
             </div>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <div class="glass-card px-8 py-6 rounded-3xl">
-                    <div class="text-white text-5xl font-bold mb-2">100+</div>
-                    <div class="text-white text-lg text-shadow-white">成功案例</div>
+
+            <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto fade-in">
+                <div class="glass-card rounded-2xl p-8 text-center">
+                    <div class="text-5xl font-bold text-white text-shadow-white mb-2">100+</div>
+                    <div class="text-xl text-white font-semibold text-shadow-white">成功案例</div>
                 </div>
-                <div class="glass-card px-8 py-6 rounded-3xl">
-                    <div class="text-white text-5xl font-bold mb-2">1.3U</div>
-                    <div class="text-white text-lg text-shadow-white">平均成本</div>
+                <div class="glass-card rounded-2xl p-8 text-center">
+                    <div class="text-5xl font-bold text-white text-shadow-white mb-2">1.3U</div>
+                    <div class="text-xl text-white font-semibold text-shadow-white">平均成本</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Metrics Section -->
-    <section class="py-20 px-4 bg-gradient-to-br from-pink-50 to-purple-50">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl sm:text-5xl font-bold text-center mb-4 text-gray-800">
+    <section class="py-20 bg-gradient-to-br from-pink-50 to-purple-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 sweet-gradient bg-clip-text text-transparent">
                 📊 真實數據回報
             </h2>
-            <p class="text-center text-xl text-gray-600 mb-16">透明化數據，讓您安心投放</p>
-            
-            <!-- 表單投放數據 -->
-            <div class="fade-in mb-16">
-                <h3 class="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-3">
-                    <span>📝</span>
-                    <span>表單投放數據</span>
-                </h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <img src="https://ra
+
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">表單投放數據</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <img src="https://raw.githubusercontent.com/cengwending4-pixel/maitreya_am/main/%E8%A1%A8%E5%96%AE(%E7%A2%BC)%20(1).jpg" alt="表單投放數據 1" class="img-card w-full h-auto">
+                    <img src="https://raw.githubusercontent.com/cengwending4-pixel/maitreya_am/main/%E8%A1%A8%E5%96%AE(%E7%A2%BC)%20(2).jpg" alt="表單投放數據 2" class="img-card w-full h-auto">
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">客戶入角回報</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <img src="https://raw.githubusercontent.com/cengwending4-pixel/maitreya_am/main/%E5%AE%A2%E6%88%B6%E5%85%A5%E8%A7%92(%E7%A2%BC)%20(1).jpg" alt="客戶入角回報 1" class="img-card w-full h-auto">
+                    <img src="https://raw.githubusercontent.com/cengwending4-pixel/maitreya_am/main/%E5%AE%A2%E6%88%B6%E5%85%A5%E8%A7%92(%E7%A2%BC)%20(2).jpg" alt="客戶入角回報 2" class="img-card w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-5xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">精準投放</h3>
+                    <p class="text-gray-600">專業團隊精準定位目標受眾</p>
+                </div>
+                <div class="bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-5xl mb-4">📈</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">數據透明</h3>
+                    <p class="text-gray-600">即時數據回報，效果一目了然</p>
+                </div>
+                <div class="bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-5xl mb-4">💰</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">成本優化</h3>
+                    <p class="text-gray-600">持續優化降低獲客成本</p>
+                </div>
+                <div class="bg-gradient-to-br from-pink-100 to-purple-100 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
+                    <div class="text-5xl mb-4">🛡️</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">安全保障</h3>
+                    <p class="text-gray-600">專業風控確保帳戶安全</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 sweet-gradient">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-white mb-8 text-shadow-soft">
+                🚀 準備開始了嗎？
+            </h2>
+            <p class="text-xl text-white mb-10 text-shadow-white">
+                立即聯繫我們，開啟您的專業代投之旅
+            </p>
+            <button class="cta-btn px-10 py-4 rounded-full text-xl">
+                TG立即諮詢 ✈️
+            </button>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="text-2xl font-bold mb-4">彌勒專業灰產投廣</div>
+            <p class="text-gray-400">© 2024 彌勒投廣. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-8 right-8 z-50">
+        <button class="cta-btn px-8 py-4 rounded-full text-lg pulse">
+            TG立即諮詢 ✈️
+        </button>
+    </div>
+
+    <div class="fixed bottom-8 left-8 z-50">
+        <a href="https://kuse.ai" target="_blank" rel="noopener noreferrer" class="kuse-pill">
+            <span>made with</span>
+            <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg"><path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"/><path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"/></svg>
+        </a>
+    </div>
+
+    <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+</body>
+</html>
+
 
 
 
